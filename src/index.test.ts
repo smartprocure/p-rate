@@ -3,10 +3,9 @@ import { setTimeout } from 'node:timers/promises'
 import rateLimit from './index'
 
 describe('rateLimit', () => {
-  test('should add up to limit promises without delay', async () => {
+  test('should add up to limit - 1 promises without delay', async () => {
     const limiter = rateLimit(3)
     const startTime = new Date().getTime()
-    await limiter.add(setTimeout(1000))
     await limiter.add(setTimeout(1000))
     await limiter.add(setTimeout(1000))
     const endTime = new Date().getTime()
@@ -16,7 +15,6 @@ describe('rateLimit', () => {
   test('should wait for one promise to resolve when limit is reached', async () => {
     const limiter = rateLimit(3)
     const startTime = new Date().getTime()
-    await limiter.add(setTimeout(1000))
     await limiter.add(setTimeout(1000))
     await limiter.add(setTimeout(1000))
     await limiter.add(setTimeout(1000))

@@ -1,6 +1,6 @@
 {
   "name": "p-rate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Limit the number of concurrent promises running at one time",
   "author": "GovSpend",
   "main": "dist/index.js",
