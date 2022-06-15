@@ -1,11 +1,11 @@
 {
-  "name": "p-ratelimit",
+  "name": "p-rate",
   "version": "0.1.0",
   "description": "Limit the number of concurrent promises running at one time",
   "author": "GovSpend",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "git://github.com/smartprocure/p-ratelimit.git",
+  "repository": "git://github.com/smartprocure/p-rate.git",
   "scripts": {
     "prepare": "npm run lint && npm test && npm run build",
     "clean": "rm -rf dist",
@@ -17,7 +17,8 @@
     "promise",
     "rate",
     "limit",
-    "concurrency"
+    "concurrency",
+    "control"
   ],
   "license": "ISC",
   "prettier": {

@@ -1,11 +1,11 @@
-# p-ratelimit
+# p-rate
 
 Run n number of promises concurrently. If the limit is reached
 and another is added, wait for at least one to finish before adding
 the next promise. This is particularly useful in a looping scenario.
 
 ```typescript
-import rateLimit from 'p-ratelimit'
+import rateLimit from 'p-rate'
 import { setTimeout } from 'node:timers/promises'
 
 const limiter = rateLimit(3)
