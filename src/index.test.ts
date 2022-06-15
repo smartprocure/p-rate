@@ -38,6 +38,7 @@ describe('rateLimit', () => {
     const endTime = new Date().getTime()
     const elapsed = endTime - startTime
     expect(elapsed).toBeGreaterThanOrEqual(2000)
+    expect(elapsed).toBeLessThan(3000)
     expect(done.length).toEqual(5)
   })
 })
