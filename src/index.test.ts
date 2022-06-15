@@ -26,13 +26,20 @@ describe('rateLimit', () => {
   })
   test('should finish awaiting remaining promises', async () => {
     const limiter = rateLimit(3)
+    const done = []
+    const createProm = () =>
+      setTimeout(1000).then((p) => {
+        done.push(p)
+      })
+
     const startTime = new Date().getTime()
     for (let i = 0; i < 5; i++) {
-      await limiter.add(setTimeout(1000))
+      await limiter.add(createProm())
     }
     await limiter.finish()
     const endTime = new Date().getTime()
     const elapsed = endTime - startTime
     expect(elapsed).toBeGreaterThanOrEqual(2000)
+    expect(done.length).toEqual(5)
   })
 })
